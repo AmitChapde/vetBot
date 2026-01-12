@@ -1,6 +1,6 @@
 export const sendMessageToBackend = async (message, sessionId) => {
   try {
-    const API_URL = import.meta.env.VITE_SERVER_URL ;
+    const API_URL = import.meta.env.VITE_SERVER_URL || 'http://localhost:8000';
     const response = await fetch(`${API_URL}/api/chat`, {
       method: 'POST',
       headers: {
