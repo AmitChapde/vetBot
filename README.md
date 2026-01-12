@@ -31,7 +31,7 @@ A plug-and-play chatbot SDK for veterinary clinics, powered by Google Gemini AI.
 3. Configure environment variables:
    Copy `.env.example` to `.env` in the `server` directory (or root) and fill in your keys.
    ```
-   PORT=5000
+   PORT=8000
    MONGODB_URI=mongodb://localhost:27017/vet-chatbot
    GEMINI_API_KEY=your_api_key
    ```
@@ -53,7 +53,7 @@ A plug-and-play chatbot SDK for veterinary clinics, powered by Google Gemini AI.
    ```bash
    npm run dev
    ```
-   This will start the Vite dev server at `http://localhost:5173`.
+   This will start the Vite dev server.
 
 4. Build for embedding:
    ```bash
@@ -62,12 +62,11 @@ A plug-and-play chatbot SDK for veterinary clinics, powered by Google Gemini AI.
    The output files will be in `dist/`.
 
 ## Embedding the Chatbot
-Add the following to your HTML file (adjust paths to where you host the built files):
+
+### Production (Ready to Use)
+Add this script tag to any website:
 
 ```html
-<link rel="stylesheet" href="/path/to/dist/assets/index.css">
-<script type="module" src="/path/to/dist/assets/index.js"></script>
-
 <!-- Optional Configuration -->
 <script>
   window.VetChatbotConfig = {
@@ -77,9 +76,15 @@ Add the following to your HTML file (adjust paths to where you host the built fi
     source: "website"
   };
 </script>
+
+<!-- VetBot SDK -->
+<script src="https://vetbot-ten.vercel.app/chatbot-sdk.iife.js"></script>
 ```
+
+### Self-Hosting
+If you build the project yourself (`npm run build`), you can host the file `client/dist/chatbot-sdk.iife.js` on your own CDN and reference it similarly.
 
 ## Troubleshooting
 - **Disk Space Error**: If you encounter `ENOSPC` during `npm install`, ensure you have sufficient disk space.
-- **API Key**: Ensure `GEMINI_API_KEY` is valid.
-# vetBot
+- **API Key**: Ensure `GEMINI_API_KEY` is valid and supports the configured model.
+- **Backend Connection**: Ensure the backend server is running and accessible (CORS enabled).
