@@ -1,0 +1,163 @@
+/* Basic Styling for the Chat Widget */
+:root {
+  --vet-primary: #007bff;
+  --vet-secondary: #0056b3;
+  --vet-bg: #ffffff;
+  --vet-text: #333333;
+  --vet-light-gray: #f0f0f0;
+}
+
+#vet-chatbot-root {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+.vet-chat-widget {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.vet-chat-toggle {
+  background-color: var(--vet-primary);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.2s;
+}
+
+.vet-chat-toggle:hover {
+  transform: scale(1.05);
+}
+
+.vet-chat-window {
+  background: var(--vet-bg);
+  width: 350px;
+  height: 500px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+}
+
+.vet-chat-header {
+  background: var(--vet-primary);
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vet-chat-header h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.vet-chat-header button {
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.vet-chat-messages {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #f9f9f9;
+}
+
+.vet-chat-message {
+  display: flex;
+  flex-direction: column;
+}
+
+.vet-chat-message.user {
+  align-items: flex-end;
+}
+
+.vet-chat-message.bot {
+  align-items: flex-start;
+}
+
+.vet-chat-bubble {
+  max-width: 80%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.vet-chat-message.user .vet-chat-bubble {
+  background-color: var(--vet-primary);
+  color: white;
+  border-bottom-right-radius: 2px;
+}
+
+.vet-chat-message.bot .vet-chat-bubble {
+  background-color: white;
+  color: var(--vet-text);
+  border: 1px solid #e0e0e0;
+  border-bottom-left-radius: 2px;
+}
+
+.vet-chat-input-area {
+  padding: 15px;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  gap: 10px;
+  background: white;
+}
+
+.vet-chat-input-area input {
+  flex: 1;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 8px 15px;
+  outline: none;
+}
+
+.vet-chat-input-area input:focus {
+  border-color: var(--vet-primary);
+}
+
+.vet-chat-input-area button {
+  background: var(--vet-primary);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.vet-chat-input-area button:disabled {
+  background: #ccc;
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
