@@ -1,8 +1,8 @@
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 require('dotenv').config();
 
-// Use the key explicitly provided by the user if .env fails, or just rely on dotenv
-const API_KEY = process.env.GEMINI_API_KEY || "AIzaSyBEO2sQ2boY28SoqA_cxhH-kcoak-tijGg";
+
+const API_KEY = process.env.GEMINI_API_KEY 
 
 const genAI = new GoogleGenerativeAI(API_KEY);
 

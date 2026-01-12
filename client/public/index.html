@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VetBot Demo</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; background: #f0f2f5; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 40px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        h1 { color: #007bff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Veterinary Clinic Demo</h1>
+        <p>This page demonstrates the Veterinary Chatbot SDK integration.</p>
+        <p>The chatbot widget should appear in the bottom right corner.</p>
+        
+        <h2>Context</h2>
+        <pre>
+window.VetChatbotConfig = {
+    userId: "vercel_demo_user",
+    userName: "Vercel Visitor",
+    petName: "Rocket (Dog)",
+    source: "vercel-deployment"
+};
+        </pre>
+    </div>
+
+    <!-- SDK Configuration -->
+    <script>
+        window.VetChatbotConfig = {
+            userId: "vercel_demo_user",
+            userName: "Vercel Visitor",
+            petName: "Rocket (Dog)",
+            source: "vercel-deployment"
+        };
+    </script>
+
+    <!-- Chatbot SDK -->
+    <!-- The script is in the same directory (dist root) after build -->
+    <script src="./chatbot-sdk.iife.js"></script>
+</body>
+</html>

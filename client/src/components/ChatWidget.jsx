@@ -9,6 +9,7 @@ const ChatWidget = ({ config }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [sessionId, setSessionId] = useState(null);
   const messagesEndRef = useRef(null);
+  const inputRef = useRef(null);
 
   useEffect(() => {
     // Generate or retrieve session ID
@@ -32,6 +33,13 @@ const ChatWidget = ({ config }) => {
   useEffect(() => {
     scrollToBottom();
   }, [messages, isOpen]);
+
+  // Focus input when bot finishes replying
+  useEffect(() => {
+    if (!isLoading && isOpen) {
+      inputRef.current?.focus();
+    }
+  }, [isLoading, isOpen]);
 
   const handleSend = async () => {
     if (!input.trim()) return;
@@ -94,6 +102,7 @@ const ChatWidget = ({ config }) => {
 
           <div className="vet-chat-input-area">
             <input 
+              ref={inputRef}
               type="text" 
               value={input}
               onChange={(e) => setInput(e.target.value)}

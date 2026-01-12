@@ -20,6 +20,6 @@ export default defineConfig({
     }
   },
   define: {
-    'process.env.NODE_ENV': '"production"' // React needs this in production build
+    'process.env.NODE_ENV': '"production"' 
   }
 })
